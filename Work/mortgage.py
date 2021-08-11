@@ -27,4 +27,4 @@ while principal > 0:
     months += 1
     print(months, round(total_paid, 2), round(principal, 2))
 
-print('Total paid is ${} over {} months'.format(round(total_paid, 2), months))
+print(f'Total paid is ${round(total_paid, 2)} over {months} months')
