@@ -2,6 +2,7 @@
 #
 # Exercise 1.27
 import csv
+import sys
 
 def portfolio_cost(filename):
 	'Calculates purchase cost of portfolio from csv file'
@@ -18,5 +19,9 @@ def portfolio_cost(filename):
 	
 	return round(cost,2)
 
-cost = portfolio_cost('Data/portfolio.csv')
+if len(sys.argv) == 2:
+	filename = sys.argv[1]
+else:
+	filename = 'Data/portfolio.csv'
+cost = portfolio_cost(filename)
 print(f'Total cost {cost}')
