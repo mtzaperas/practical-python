@@ -9,8 +9,11 @@ def portfolio_cost(filename):
 		cost = 0
 		file_header = next(portfolio)
 		for stock in portfolio:
-			name, num_shares, purchase_price = stock.split(',')
-			cost += int(num_shares) * float(purchase_price)
+			try:
+				name, num_shares, purchase_price = stock.split(',')
+				cost += int(num_shares) * float(purchase_price)
+			except ValueError:
+				print('Couldnt parse: ', stock)
 	
 	return round(cost,2)
 
