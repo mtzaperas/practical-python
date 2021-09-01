@@ -60,15 +60,19 @@ def print_report(report):
     for row in report:
         print('%10s %10d %10.2f %10.2f' % row)
 
-# Read data files and create the report data        
+def portfolio_report(portfolio_filename, prices_filename):
+    '''
+    Prints a list of tuples in pretty format from input of filenames
+    '''
 
-portfolio = read_portfolio('./Data/portfolio.csv')
-prices    = read_prices('./Data/prices.csv')
+    # Read data files and create the report data        
+    portfolio = read_portfolio(portfolio_filename)
+    prices    = read_prices(prices_filename)
 
-# Generate the report data
+    # Generate the report data
+    report    = make_report_data(portfolio, prices)
 
-report    = make_report_data(portfolio, prices)
+    # Output the report
+    print_report(report)
 
-# Output the report
-
-print_report(report)
+portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
